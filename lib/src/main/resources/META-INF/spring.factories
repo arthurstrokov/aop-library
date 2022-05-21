@@ -1,2 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.gmail.arthurstrokov.service.autoconfigure.LoggingAutoConfigure,\
-  \ com.gmail.arthurstrokov.service.autoconfigure.MethodCallCounterAutoConfigure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.gmail.arthurstrokov.aop.autoconfigure.TrackTimeLoggingAutoConfigure,\
+  \ com.gmail.arthurstrokov.aop.autoconfigure.CountableLoggingAutoConfigure

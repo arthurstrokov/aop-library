@@ -7,13 +7,11 @@
  */
 
 plugins {
-    id 'org.springframework.boot' version '2.7.0'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'org.springframework.boot' version '2.7.2'
+    id 'io.spring.dependency-management' version '1.0.13.RELEASE'
     // Apply the java-library plugin for API and implementation separation.
     id 'java-library'
     id 'maven-publish'
-
-//    compileOnly(fileTree(dir: 'C:/Users/arthu/.m2/repository/io/github/arthurstrokov/aop-library/0.0.1', include: '*.jar'))
 }
 
 java {
@@ -40,42 +38,14 @@ configurations {
 }
 
 repositories {
-    // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
 
-ext {
-    springVersion = '5.3.20'
-    springBootVersion = '2.7.0'
-    aspectjVersion = '1.9.9.1'
-}
-
 dependencies {
-    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor:2.6.7'
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-autoconfigure
-    implementation group: 'org.springframework.boot', name: 'spring-boot-autoconfigure', version: springBootVersion
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: springBootVersion
-
-    // https://mvnrepository.com/artifact/org.aspectj/aspectjtools
-    implementation group: 'org.aspectj', name: 'aspectjtools', version: aspectjVersion
-    // https://mvnrepository.com/artifact/org.aspectj/aspectjweaver
-    runtimeOnly group: 'org.aspectj', name: 'aspectjweaver', version: aspectjVersion
-    // https://mvnrepository.com/artifact/org.aspectj/aspectjrt
-    runtimeOnly group: 'org.aspectj', name: 'aspectjrt', version: aspectjVersion
-
-    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
-    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.36'
-
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
-    api 'org.apache.commons:commons-math3:3.6.1'
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation 'com.google.guava:guava:30.1.1-jre'
-
-    // Use JUnit test framework.
-    testImplementation 'junit:junit:4.13.2'
-
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'junit:junit:4.13.2'
 }
 
 publishing {
@@ -129,6 +99,12 @@ publishing {
         maven {
             name = 'myRepo'
             url = layout.buildDirectory.dir("repo")
+
+            url "https://maven.pkg.jetbrains.space/avistate/p/aop-library/aop"
+            credentials {
+                username = spaceUsername
+                password = spacePassword
+            }
         }
     }
 }

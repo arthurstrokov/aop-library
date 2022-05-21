@@ -1,4 +1,4 @@
-package com.gmail.arthurstrokov.service.aop;
+package com.gmail.arthurstrokov.aop.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -21,8 +21,9 @@ public class CountableAspect {
         log = LoggerFactory.getLogger(loggerName);
     }
 
-    @Pointcut("@annotation(com.gmail.arthurstrokov.service.Countable)")
+    @Pointcut("@annotation(com.gmail.arthurstrokov.aop.annotations.Countable)")
     public void executeCounting() {
+        // Pointcut
     }
 
     @Before("executeCounting()")

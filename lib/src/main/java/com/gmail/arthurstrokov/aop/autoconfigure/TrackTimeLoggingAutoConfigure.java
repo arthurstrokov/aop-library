@@ -1,24 +1,24 @@
-package com.gmail.arthurstrokov.service.autoconfigure;
+package com.gmail.arthurstrokov.aop.autoconfigure;
 
-import com.gmail.arthurstrokov.service.aop.LoggableAspect;
+import com.gmail.arthurstrokov.aop.aspect.TrackTimeAspect;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnClass(LoggableAspect.class)
+@ConditionalOnClass(TrackTimeAspect.class)
 @EnableConfigurationProperties(LoggingProperties.class)
-public class LoggingAutoConfigure {
+public class TrackTimeLoggingAutoConfigure {
 
     private final LoggingProperties properties;
 
-    public LoggingAutoConfigure(LoggingProperties properties) {
+    public TrackTimeLoggingAutoConfigure(LoggingProperties properties) {
         this.properties = properties;
     }
 
     @Bean
-    public LoggableAspect loggableAspect(){
-        return new LoggableAspect(properties.getLoggerName());
+    public TrackTimeAspect loggableAspect(){
+        return new TrackTimeAspect(properties.getLoggerName());
     }
 }

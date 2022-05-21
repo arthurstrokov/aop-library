@@ -1,22 +1,22 @@
-package com.gmail.arthurstrokov.service.autoconfigure;
+package com.gmail.arthurstrokov.aop.autoconfigure;
 
-import com.gmail.arthurstrokov.service.aop.CountableAspect;
+import com.gmail.arthurstrokov.aop.aspect.CountableAspect;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ConditionalOnProperty(name = "logging.api.enabled", havingValue = "true", matchIfMissing = true)
-public class MethodCallCounterAutoConfigure {
+public class CountableLoggingAutoConfigure {
 
     private final LoggingProperties properties;
 
-    public MethodCallCounterAutoConfigure(LoggingProperties properties) {
+    public CountableLoggingAutoConfigure(LoggingProperties properties) {
         this.properties = properties;
     }
 
     @Bean
-    public CountableAspect getCountableAspect(){
-        return  new CountableAspect(properties.getLoggerName());
+    public CountableAspect getCountableAspect() {
+        return new CountableAspect(properties.getLoggerName());
     }
 }
