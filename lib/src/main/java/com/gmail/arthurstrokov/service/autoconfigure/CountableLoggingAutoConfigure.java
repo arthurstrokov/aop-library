@@ -7,11 +7,11 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ConditionalOnProperty(name = "logging.api.enabled", havingValue = "true", matchIfMissing = true)
-public class MethodCallCounterAutoConfigure {
+public class CountableLoggingAutoConfigure {
 
     private final LoggingProperties properties;
 
-    public MethodCallCounterAutoConfigure(LoggingProperties properties) {
+    public CountableLoggingAutoConfigure(LoggingProperties properties) {
         this.properties = properties;
     }
 

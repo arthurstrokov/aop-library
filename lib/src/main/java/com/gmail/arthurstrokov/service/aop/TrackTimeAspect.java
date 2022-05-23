@@ -8,10 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Aspect
-public class LoggableAspect {
+public class TrackTimeAspect {
     private final Logger log;
 
-    public LoggableAspect(String loggerName) {
+    public TrackTimeAspect(String loggerName) {
         super();
         log = LoggerFactory.getLogger(loggerName);
     }
