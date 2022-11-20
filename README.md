@@ -11,3 +11,17 @@
             }
         }
     }
+
+    In application.yml:
+        logging:
+            level:
+                org:
+                    springframework:
+                        web: INFO
+                        boot: INFO
+                    hibernate: ERROR
+                com.gmail.arthurstrokov: DEBUG       
+                
+        aop:
+            logging:
+                enabled: true # (default match if missing = true)

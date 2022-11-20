@@ -23,7 +23,7 @@ public class TrackTimeAspect {
     }
 
     @Around("executeTiming()")
-    public Object logMethodTiming(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+    public Object logMethodTiming(final ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         final StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         Object returnValue = proceedingJoinPoint.proceed();

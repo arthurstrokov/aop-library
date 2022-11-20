@@ -7,7 +7,7 @@
  */
 
 plugins {
-    id 'org.springframework.boot' version '2.7.2'
+    id 'org.springframework.boot' version '2.7.5'
     id 'io.spring.dependency-management' version '1.0.13.RELEASE'
     // Apply the java-library plugin for API and implementation separation.
     id 'java-library'
@@ -28,7 +28,7 @@ jar {
 }
 
 group = 'io.github.arthurstrokov'
-version = '0.0.1'
+version = '0.0.2'
 
 
 configurations {
@@ -43,6 +43,7 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'junit:junit:4.13.2'
@@ -53,7 +54,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'io.github.arthurstrokov'
             artifactId = 'aop-library'
-            version = '0.0.1'
+            version = '0.0.2'
             from(components["java"])
             pom {
                 name = 'AOP Library Project'

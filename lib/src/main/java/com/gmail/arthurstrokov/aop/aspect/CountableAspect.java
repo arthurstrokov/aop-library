@@ -27,7 +27,7 @@ public class CountableAspect {
     }
 
     @Before("executeCounting()")
-    public void incrementCount(JoinPoint joinPoint) {
+    public void incrementCount(final JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getDeclaringType() + "." + joinPoint.getSignature().getName();
         if (countingMap.containsKey(methodName)) {
             int current = countingMap.get(methodName);

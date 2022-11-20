@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnProperty(name = "logging.api.enabled", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(name = "aop.logging.enabled", havingValue = "true", matchIfMissing = true)
 public class CountableLoggingAutoConfigure {
 
     private final LoggingProperties properties;
